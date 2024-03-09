@@ -6,7 +6,7 @@ import {
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
-import { CreateAddressDto } from './entities/createAddress.dto';
+import { CreateAddressDto } from './dtos/createAddress.dto';
 import { AddressService } from './address.service';
 import { AddressEntity } from './entities/address.entity';
 
@@ -23,7 +23,6 @@ export class AddressController {
     @Body() createAddressDto: CreateAddressDto,
     @Param('userId') userId: number,
   ): Promise<AddressEntity> {
-    console.log(createAddressDto);
     return this.addressService.createAddress(createAddressDto, userId);
   }
 }
